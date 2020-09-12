@@ -1,5 +1,5 @@
 {
-  "name": "aznotes_api",
+  "name": "az-notes-api",
   "version": "1.0.0",
   "description": "Node.js CRUD API layer for blog site",
   "main": "server.js",
