@@ -15,6 +15,19 @@ router.get('/notes', async function (req, res) {
 
 });
 
+router.get('/notes/tags/', async function (req, res) {
+  const tags = req.query.tag;
+  console.log(tags);
+  const notes = await Note.find({ tags: { $all: tags } });
+
+  try {
+    res.send(notes);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+
+});
+
 router.get('/note/:id', async function (req, res) {
   const id = req.params.id;
   const note = await Note.findById(id);
