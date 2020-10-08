@@ -58,6 +58,23 @@ router.put('/note/:id', async function (req, res) {
     })
 });
 
+router.put('/note/publish/:id', async function (req, res) {
+  const id = req.params.id;
+
+  const note = await Note.findByIdAndUpdate(id,
+    {
+      "published": req.body.published
+    },
+    function (err, result) {
+      if (err) {
+        res.send(err)
+      }
+      else {
+        res.send(result)
+      }
+    })
+});
+
 router.post('/note/', async function (req, res) {
 
   const note = new Note();
