@@ -24,6 +24,6 @@ app.use(cors());
 app.use('/', noteRouter);
 app.use('/', tagRouter);
 
-app.listen(process.env.PORT, function () {
-  console.log('Example app listening on port 3000!');
+app.listen(process.env.PORT || 8080, function () {
+  console.log(`Example app listening on port ${process.env.PORT}!`);
 });
