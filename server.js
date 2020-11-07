@@ -8,6 +8,8 @@ import bodyParser from 'body-parser';
 import noteRouter from './routes/noteRoutes'
 import tagRouter from './routes/tagRoutes'
 
+const PORT = process.env.PORT || 8000;
+
 mongoose.connect(process.env.DB_CONN_STRING,
   { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
@@ -24,6 +26,6 @@ app.use(cors());
 app.use('/', noteRouter);
 app.use('/', tagRouter);
 
-app.listen(process.env.PORT || 8080, function () {
-  console.log(`Example app listening on port ${process.env.PORT}!`);
+app.listen(PORT, function () {
+  console.log(`Example app listening on port ${PORT}!`);
 });
